@@ -22,7 +22,7 @@ jobs:
       - name: Build Archive
         run: |
           xcodebuild archive \
-            -project AgentWrapper.xcodeproj \
+            -project ios-app/AgentWrapper.xcodeproj \
             -scheme AgentWrapper \
             -configuration Release \
             -archivePath AgentWrapper.xcarchive \
