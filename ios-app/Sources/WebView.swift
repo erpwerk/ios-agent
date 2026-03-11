@@ -6,6 +6,13 @@ struct WebView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> WKWebView {
         let configuration = WKWebViewConfiguration()
+        configuration.allowsInlineMediaPlayback = true
+        
+        // Erlaube Medien-Capturing (Mikrofon/Kamera) für Webinhalte
+        if #available(iOS 15.0, *) {
+            configuration.allowsAirPlayForMediaPlayback = true
+        }
+        
         let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.allowsBackForwardNavigationGestures = true
         return webView
@@ -16,3 +23,4 @@ struct WebView: UIViewRepresentable {
         uiView.load(request)
     }
 }
+
